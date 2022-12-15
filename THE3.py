@@ -10,12 +10,12 @@ def d_270(patt):
     return rotate_pattern
 def browse(P,I,degree):
     if degree!=0:
-        #func=eval("d_"+str(degree))
         P=["".join(eval("d_"+str(degree))(P)[i]) for i in range(len(eval("d_"+str(degree))(P)))]
+    I2=I[:]        
     for i in range(len(I)):
-        escape=0
         a=I[i].find(P[0][0])
-        if a!=(-1):
+        while a!=(-1):
+            escape=0
             for j in range(len(P[0])):
                 for k in range(len(P)):
                     try:
@@ -28,6 +28,8 @@ def browse(P,I,degree):
                         break
                 if escape!=0:break
             if escape==0:return(True,(i,a,degree))
+            I2[i]=I2[i][:a]+"c"+I2[(a+1):] if "c"==P[0][0] else I2[i][:a]+"d"+I2[i][(a+1):]
+            a=I2[i].find(P[0][0])
     return (False,False)
 def pattern_search(P, I):
     a,result=False,False
@@ -38,13 +40,12 @@ def pattern_search(P, I):
     return(result)
 
     
-I = ["tuz<abcz",
-     "tuzAabcz",
-     ">xxAY#at", 
-     "uzyXAAr.", 
-     "r,lAXxio",  
-     "z#a!yabc", 
-     "yaAy?zyY"]
+I = ["CAA<abcA",
+     "AXYLYXAt", 
+     "YAXXAAX.", 
+     "r,lAXYIo",  
+     "z#aYAXbc", 
+     "yaAAXAyY"]
 P1 = ["AXA", "XAY"]
 print(pattern_search(P1,I))  
 
