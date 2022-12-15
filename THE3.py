@@ -1,5 +1,4 @@
-def d_0(patt):
-    return patt
+def d_0(patt): return patt    
 def d_90(patt):
     rotate_pattern=[[patt[m][n] for m in range(len(patt)-1,-1,-1)] for n in range(len(patt[0]))]
     return rotate_pattern
@@ -11,8 +10,8 @@ def d_270(patt):
     return rotate_pattern
 def browse(P,I,degree):
     if degree!=0:
-        func=eval("d_"+str(degree))
-        P=["".join(func(P)[i]) for i in range(len(func(P)))]
+        #func=eval("d_"+str(degree))
+        P=["".join(eval("d_"+str(degree))(P)[i]) for i in range(len(eval("d_"+str(degree))(P)))]
     for i in range(len(I)):
         escape=0
         a=I[i].find(P[0][0])
@@ -22,7 +21,6 @@ def browse(P,I,degree):
                     try:
                         loc=I[i+k][a+j]
                     except IndexError:
-                        #print("error:",degree)
                         escape+=1
                         break
                     if P[k][j]!=loc:
@@ -42,7 +40,7 @@ def pattern_search(P, I):
     
 I = ["tuz<abcz",
      "tuzAabcz",
-     ">AxAY#at", 
+     ">xxAY#at", 
      "uzyXAAr.", 
      "r,lAXxio",  
      "z#a!yabc", 
@@ -50,12 +48,3 @@ I = ["tuz<abcz",
 P1 = ["AXA", "XAY"]
 print(pattern_search(P1,I))  
 
-"""
-try:
-                        a=(P[k][j]!=I[i+k][a+j])
-                    except:
-                        a="error"
-                    if a=="error":
-                        escape+=1
-                        break
-"""
