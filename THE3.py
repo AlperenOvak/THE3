@@ -3,7 +3,7 @@ def d_90(patt):
     rotate_pattern=[[patt[m][n] for m in range(len(patt)-1,-1,-1)] for n in range(len(patt[0]))]
     return rotate_pattern
 def d_180(patt):
-    rotate_pattern=[[patt[m][n] for m in range(len(patt)-1,-1,-1)] for n in range(len(patt[0])-1,-1,-1)]
+    rotate_pattern=[[patt[m][n] for n in range(len(patt[0])-1,-1,-1)] for m in range(len(patt)-1,-1,-1)]
     return rotate_pattern
 def d_270(patt):
     rotate_pattern=[[patt[m][n] for m in range(len(patt))] for n in range(len(patt[0])-1,-1,-1)]
@@ -42,7 +42,7 @@ def pattern_search(P, I):
     
 I = ["CAA<abcA",
      "AXYLYXAt", 
-     "YAXXAAX.", 
+     "YAXfAAX.", 
      "r,lAXYIo",  
      "z#aYAXbc", 
      "yaAAXAyY"]
