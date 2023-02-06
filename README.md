@@ -1,5 +1,5 @@
 # THE3
-##Our task:
+## Our task:
 Your task in this assignment is to search for a 2-dimensional (2D) pattern P in a 2D image I.
 A 2D pattern1 P with size N × M is a matrix with N rows and M columns such that P[i, j]
 denotes the pixel value at i
