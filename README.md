@@ -23,4 +23,4 @@ that patterns are always smaller than images; i.e., N < H and M < W.
 
 # Final result after gradeing:
 
-This code has got full score (100%)
+This code got full score (100%)
